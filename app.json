@@ -1,0 +1,16 @@
+{
+  "name": "fcjs",
+  "description": "app.json created to deploy from heroku",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
