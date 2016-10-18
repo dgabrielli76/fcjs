@@ -22,6 +22,11 @@ app.config(
   }
 );
 
-app.controller('AppCtrl', function($scope, PizzAPI) {
+app.controller('AppCtrl', function($rootScope, $scope, PizzAPI) {
+  $scope.errorAPI = null;
 
+  /* Listen to API errors */
+  $rootScope.$on('errorAPI', function (event, args) {
+    $scope.errorAPI = args.code;
+  });
 });
