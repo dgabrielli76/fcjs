@@ -9,7 +9,10 @@ angular.module('FC-JS').factory('PizzAPI', function($http) {
       url: 'https://pizzapi.herokuapp.com/pizzas',
       headers: {'Authorization': 'fc->js'}
     }).then(function successCallback(response) {
-        service.listPizzas = response.data;
+        if(service.listPizzas.length > 0) service.listPizzas = [];
+        response.data.forEach(function(pizza) {
+          service.listPizzas.push(pizza);
+        });
       }, function errorCallback(response) {
         console.log(response);
         service.listPizzas = [];

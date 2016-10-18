@@ -12,6 +12,10 @@ app.config(
       templateUrl: 'partials/home.html',
       controller: 'HomeCtrl'
     }).
+    when('/orders', {
+      templateUrl: 'partials/orders.html',
+      controller: 'OrdersCtrl'
+    }).
     otherwise({
       redirectTo: '/home'
     });
@@ -19,5 +23,5 @@ app.config(
 );
 
 app.controller('AppCtrl', function($scope, PizzAPI) {
-  PizzAPI.getAllPizzas();
+
 });

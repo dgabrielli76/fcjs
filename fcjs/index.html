@@ -5,6 +5,9 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
+    <!-- Bulma -->
+    <link rel="stylesheet" type="text/css" href="css/libs/bulma.css">
+
     <!-- AngularJS -->
     <script type="text/javascript" src="js/libs/angular.min.js"></script>
     <script type="text/javascript" src="js/libs/angular-route.min.js"></script>
@@ -17,9 +20,26 @@
 
     <!-- Controllers -->
     <script type="text/javascript" src="js/controllers/home.js"></script>
+    <script type="text/javascript" src="js/controllers/orders.js"></script>
   </head>
   <body>
     <div ng-controller="AppCtrl">
+      <nav class="nav">
+        <div class="nav-left">
+          <a class="nav-item is-brand" href="#">
+            FC-JS
+          </a>
+        </div>
+
+        <div class="nav-right nav-menu">
+          <a class="nav-item" href="#/home">
+            Home
+          </a>
+          <a class="nav-item" href="#/orders">
+            Orders
+          </a>
+        </div>
+      </nav>
       <div ng-view></div>
     </div>
   </body>

@@ -1,1 +1,23 @@
-<h1>{{test}}</h1>
+<div class="columns" style="padding: 10px">
+  <div class="column" ng-repeat="pizza in pizzas" style="flex-grow: 0">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="resources/{{pizza.id}}.png" alt="">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-5">{{pizza.name}}</p>
+            <p class="subtitle is-6">{{formatPrice(pizza.price)}} €</p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <a class="card-footer-item" style="color: #4a4a4a">Order</a>
+      </footer>
+    </div>
+  </div>
+</div>
