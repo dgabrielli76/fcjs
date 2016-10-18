@@ -1,3 +1,11 @@
+<article class="message is-success" ng-if="successOrder">
+  <div class="message-header">
+    Succès
+  </div>
+  <div class="message-body">
+    La commande a été envoyée avec succès
+  </div>
+</article>
 <div class="columns" style="padding: 10px">
   <div class="column" ng-repeat="pizza in pizzas" style="flex-grow: 0">
     <div class="card">
@@ -16,7 +24,7 @@
       </div>
 
       <footer class="card-footer">
-        <a class="card-footer-item" style="color: #4a4a4a">Order</a>
+        <a class="card-footer-item" style="color: #4a4a4a" ng-click="createOrder(pizza.id)">Commander</a>
       </footer>
     </div>
   </div>

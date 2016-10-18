@@ -8,6 +8,9 @@
     <!-- Bulma -->
     <link rel="stylesheet" type="text/css" href="css/libs/bulma.css">
 
+    <!-- Moment -->
+    <script type="text/javascript" src="js/libs/moment-with-locales.min.js"></script>
+
     <!-- AngularJS -->
     <script type="text/javascript" src="js/libs/angular.min.js"></script>
     <script type="text/javascript" src="js/libs/angular-route.min.js"></script>
@@ -33,14 +36,14 @@
 
         <div class="nav-right nav-menu">
           <a class="nav-item" href="#/home">
-            Home
+            Accueil
           </a>
           <a class="nav-item" href="#/orders">
-            Orders
+            Commandes
           </a>
         </div>
       </nav>
-      <div ng-view></div>
+      <div ng-view style="padding: 10px"></div>
     </div>
   </body>
 </html>

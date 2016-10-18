@@ -1,5 +1,4 @@
-Order List
-<div class="columns" style="padding: 10px">
+<div class="columns is-multiline is-mobile" style="padding: 10px">
   <div class="column" ng-repeat="order in orders" style="flex-grow: 0">
     <div class="card">
       <div class="card-image">
@@ -13,6 +12,10 @@ Order List
             <p class="title is-5">{{order.pizza.name}}</p>
             <p class="subtitle is-6">{{formatPrice(order.pizza.price)}} €</p>
           </div>
+        </div>
+
+        <div class="content">
+          <small>Date de commande : {{formatDate(order.CreatedAt)}}</small>
         </div>
       </div>
     </div>
