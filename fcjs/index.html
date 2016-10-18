@@ -8,6 +8,7 @@
 
     <!-- Bulma -->
     <link rel="stylesheet" type="text/css" href="css/libs/bulma.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <!-- Moment -->
     <script type="text/javascript" src="js/libs/moment-with-locales.min.js"></script>
@@ -44,6 +45,7 @@
           </a>
         </div>
       </nav>
+      <div class="loading" ng-if="requestStatus"></div>
       <div style="padding: 10px">
         <article class="message is-danger" ng-if="errorAPI">
           <div class="message-header">
@@ -55,6 +57,6 @@
         </article>
       </div>
       <div ng-view style="padding: 10px"></div>
-    </div>
+      </div>
   </body>
 </html>

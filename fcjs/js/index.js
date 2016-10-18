@@ -24,9 +24,15 @@ app.config(
 
 app.controller('AppCtrl', function($rootScope, $scope, PizzAPI) {
   $scope.errorAPI = null;
+  $scope.requestStatus = false;
 
   /* Listen to API errors */
   $rootScope.$on('errorAPI', function (event, args) {
     $scope.errorAPI = args.code;
+  });
+
+  /* Listen to request status */
+  $rootScope.$on('request', function (event, args) {
+    $scope.requestStatus = args.status;
   });
 });

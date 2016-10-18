@@ -6,6 +6,7 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http) {
 
   service.getAllPizzas = function() {
     $rootScope.$broadcast('errorAPI', {code: null});
+    $rootScope.$broadcast('request', {status: true});
 
     // Get all pizzas
     $http({
@@ -18,14 +19,17 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http) {
         response.data.forEach(function(pizza) {
           service.listPizzas.push(pizza);
         });
+        $rootScope.$broadcast('request', {status: false});
       }, function errorCallback(response) {
         $rootScope.$broadcast('errorAPI', {code: response.status});
         service.listPizzas = [];
+        $rootScope.$broadcast('request', {status: false});
       });
   };
 
   service.getAllOrders = function() {
     $rootScope.$broadcast('errorAPI', {code: null});
+    $rootScope.$broadcast('request', {status: true});
 
     // Get all orders
     $http({
@@ -38,14 +42,17 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http) {
         response.data.forEach(function(order) {
           service.listOrders.push(order);
         });
+        $rootScope.$broadcast('request', {status: false});
       }, function errorCallback(response) {
         $rootScope.$broadcast('errorAPI', {code: response.status});
         service.listOrders = [];
+        $rootScope.$broadcast('request', {status: false});
       });
   };
 
   service.createOrder = function(id) {
     $rootScope.$broadcast('errorAPI', {code: null});
+    $rootScope.$broadcast('request', {status: true});
 
     // Create an order
     $http.post(
@@ -54,8 +61,10 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http) {
       {headers: {'Authorization': 'fc->js'}, timeout: service.delay}
     ).then(function successCallback(response) {
         $rootScope.$broadcast('orderStatus', {status: true});
+        $rootScope.$broadcast('request', {status: false});
       }, function errorCallback(response) {
         $rootScope.$broadcast('errorAPI', {code: response.status});
+        $rootScope.$broadcast('request', {status: false});
       });
   };
 
