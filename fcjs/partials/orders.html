@@ -1,3 +1,11 @@
+<article class="message is-danger" ng-if="circuitBreaker.enabled">
+  <div class="message-header">
+    Erreur
+  </div>
+  <div class="message-body">
+    Les données n'ont pas pu être rechargées. Les données affichées datent du {{formatDate(circuitBreaker.getCachedListOrdersDate())}}
+  </div>
+</article>
 <div class="columns is-multiline is-mobile" style="padding: 10px">
   <div class="column" ng-repeat="order in orders" style="flex-grow: 0">
     <div class="card">

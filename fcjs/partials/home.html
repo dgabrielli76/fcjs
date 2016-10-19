@@ -6,6 +6,14 @@
     La commande a été envoyée avec succès
   </div>
 </article>
+<article class="message is-danger" ng-if="circuitBreaker.enabled">
+  <div class="message-header">
+    Erreur
+  </div>
+  <div class="message-body">
+    Les données n'ont pas pu être rechargées. Les données affichées datent du {{formatDate(circuitBreaker.getCachedListPizzasDate())}}
+  </div>
+</article>
 <div class="columns" style="padding: 10px">
   <div class="column" ng-repeat="pizza in pizzas" style="flex-grow: 0">
     <div class="card">
@@ -24,7 +32,7 @@
       </div>
 
       <footer class="card-footer">
-        <a class="card-footer-item" style="color: #4a4a4a" ng-click="createOrder(pizza.id)">Commander</a>
+        <a class="card-footer-item" style="color: #4a4a4a" ng-click="createOrder(pizza.id)" ng-if="!circuitBreaker.enabled">Commander</a>
       </footer>
     </div>
   </div>
