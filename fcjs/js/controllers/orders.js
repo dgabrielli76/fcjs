@@ -1,7 +1,8 @@
-angular.module('FC-JS').controller('OrdersCtrl', function($scope, PizzAPI) {
+angular.module('FC-JS').controller('OrdersCtrl', function($scope, PizzAPI, CircuitBreaker) {
   /* Get all orders */
   PizzAPI.getAllOrders();
   $scope.orders = PizzAPI.listOrders;
+  $scope.circuitBreaker = CircuitBreaker;
 
   $scope.formatPrice = function(price) {
     price = price / 100;

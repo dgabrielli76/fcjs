@@ -22,7 +22,7 @@ app.config(
   }
 );
 
-app.controller('AppCtrl', function($rootScope, $scope, PizzAPI) {
+app.controller('AppCtrl', function($rootScope, $scope, PizzAPI, CircuitBreaker) {
   $scope.errorAPI = null;
   $scope.requestStatus = false;
 
@@ -34,5 +34,12 @@ app.controller('AppCtrl', function($rootScope, $scope, PizzAPI) {
   /* Listen to request status */
   $rootScope.$on('request', function (event, args) {
     $scope.requestStatus = args.status;
+  });
+
+  /* Listen to circuit breaker status */
+  $rootScope.$on('circuitBreaker', function (event, args) {
+    if(args.enabled) {
+      PizzAPI.getAllPizzas();
+    }
   });
 });
