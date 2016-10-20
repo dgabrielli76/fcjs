@@ -1,5 +1,6 @@
 angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http, $location, CircuitBreaker) {
   var service = {};
+  service.url = 'https://fcjs-pizzapi.herokuapp.com/';
   service.listPizzas = [];
   service.listOrders = [];
   service.delay = 2000;
@@ -17,7 +18,7 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http, $location
     // Get all pizzas
     $http({
       method: 'GET',
-      url: 'https://fcjs-pizzapi.herokuapp.com/pizzas',
+      url: service.url + 'pizzas',
       headers: {'Authorization': 'fc->js'},
       timeout: service.delay
     }).then(function successCallback(response) {
@@ -48,7 +49,7 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http, $location
     // Get all orders
     $http({
       method: 'GET',
-      url: 'https://fcjs-pizzapi.herokuapp.com/orders',
+      url: service.url + 'orders',
       headers: {'Authorization': 'fc->js'},
       timeout: service.delay
     }).then(function successCallback(response) {
@@ -75,7 +76,7 @@ angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http, $location
 
     // Create an order
     $http.post(
-      'https://fcjs-pizzapi.herokuapp.com/pizzas',
+      service.url + 'pizzas',
       {id: id},
       {headers: {'Authorization': 'fc->js'}, timeout: service.delay}
     ).then(function successCallback(response) {
