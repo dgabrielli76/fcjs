@@ -1,6 +1,6 @@
 angular.module('FC-JS').factory('PizzAPI', function($rootScope, $http, $location, CircuitBreaker) {
   var service = {};
-  service.url = 'https://fcjs-pizzapi.herokuapp.com/';
+  service.url = 'https://pizzapi.herokuapp.com/';
   service.listPizzas = [];
   service.listOrders = [];
   service.delay = 2000;
